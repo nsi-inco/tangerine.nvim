@@ -28,7 +28,7 @@
     (let [path (resolve dir)]
       (if (vim.startswith path "/")
           (do path)
-          (.. config-dir "/" path)))))
+          (vim.fn.expand (.. config-dir "/" path))))))
 
 (lambda get-type [x]
   "returns type of x, correctly types lists."
