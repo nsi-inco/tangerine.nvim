@@ -17,7 +17,7 @@ local function resolve(path)
   if endswith(out, {"/", ".fnl", ".lua"}) then
     return out
   else
-    return (out .. "/")
+    return vim.fn.expand((out .. "/"))
   end
 end
 local function rtpdirs(dirs)
@@ -31,7 +31,7 @@ local function rtpdirs(dirs)
       if vim.startswith(path, "/") then
         val_17_auto = path
       else
-        val_17_auto = (config_dir .. "/" .. path)
+        val_17_auto = vim.fn.expand((config_dir .. "/" .. path))
       end
     end
     if (nil ~= val_17_auto) then
