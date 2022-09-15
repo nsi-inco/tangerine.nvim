@@ -20,7 +20,7 @@
   (let [out (vim.fn.resolve (vim.fn.expand path))]
        (if (endswith out ["/" ".fnl" ".lua"])
            (do out)
-           (.. out "/"))))
+           (vim.fn.expand (.. out "/")))))
 
 (lambda rtpdirs [dirs]
   "resolve list of 'dirs' to valid &rtp paths."
